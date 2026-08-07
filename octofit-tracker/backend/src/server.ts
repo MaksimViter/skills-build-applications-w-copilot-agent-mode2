@@ -42,6 +42,37 @@ app.get('/api/activities', (_req, res) => {
   });
 });
 
+app.get('/api/teams', (_req, res) => {
+  res.json({
+    apiBaseUrl,
+    teams: [
+      { id: 't1', name: 'Summit Striders', memberCount: 8 },
+      { id: 't2', name: 'Iron Pulse', memberCount: 6 },
+    ],
+  });
+});
+
+app.get('/api/leaderboard', (_req, res) => {
+  res.json({
+    apiBaseUrl,
+    leaderboard: [
+      { id: 'l1', rank: 1, name: 'Summit Striders', score: 1280 },
+      { id: 'l2', rank: 2, name: 'Iron Pulse', score: 1195 },
+      { id: 'l3', rank: 3, name: 'Cardio Crew', score: 1102 },
+    ],
+  });
+});
+
+app.get('/api/workouts', (_req, res) => {
+  res.json({
+    apiBaseUrl,
+    workouts: [
+      { id: 'w1', name: 'Power Intervals', durationMin: 35 },
+      { id: 'w2', name: 'Core and Mobility', durationMin: 24 },
+    ],
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`OctoFit backend listening on port ${PORT}`);
 });
