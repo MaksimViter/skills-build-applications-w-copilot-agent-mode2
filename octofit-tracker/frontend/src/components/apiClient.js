@@ -2,7 +2,7 @@ const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
 
 export const apiBaseOrigin = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
-  : 'http://localhost:8000'
+  : inferFallbackOrigin()
 
 export function buildApiUrl(componentName) {
   const normalized = componentName.replace(/^\/+|\/+$/g, '')
@@ -39,4 +39,14 @@ function extractMeta(payload) {
     }
   }
   return meta
+}
+
+function inferFallbackOrigin() {
+  const hostname = globalThis?.location?.hostname
+
+  if (hostname?.endsWith('.app.github.dev')) {
+    return `https://${hostname.replace('-5173.app.github.dev', '-8000.app.github.dev')}`
+  }
+
+  return 'http://localhost:8000'
 }
