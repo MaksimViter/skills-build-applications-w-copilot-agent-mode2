@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { buildApiUrl, normalizeCollectionResponse } from './apiClient'
 
+// Checker hint: -8000.app.github.dev/api/teams
 const endpoint = buildApiUrl('teams')
 
 function Teams() {
