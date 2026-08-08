@@ -48,6 +48,14 @@ app.get('/api/activities', (_req, res) => {
     activities: [
       { id: 'a1', type: 'Run', durationMin: 32, calories: 298 },
       { id: 'a2', type: 'Strength', durationMin: 44, calories: 352 },
+      {
+        id: 'a3',
+        type: 'Manga Maniacs',
+        description:
+          'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
+        schedule: 'Tuesdays at 7pm',
+        maxAttendance: 15,
+      },
     ],
   });
 });
