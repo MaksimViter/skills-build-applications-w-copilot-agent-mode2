@@ -58,18 +58,14 @@ function Activities() {
             {activities.map((activity, index) => (
               <li key={activity.id ?? index}>
                 <strong>{activity.type ?? 'Activity'}</strong>
-                {activity.durationMin != null || activity.duration != null ? (
-                  <span>
-                    {' '}
-                    {activity.durationMin ?? activity.duration} min
-                  </span>
-                ) : null}
-                {activity.calories != null ? <span> | {activity.calories} cal</span> : null}
-                {activity.description ? <p>{activity.description}</p> : null}
-                {activity.schedule ? <p><strong>Schedule:</strong> {activity.schedule}</p> : null}
-                {activity.maxAttendance != null ? (
-                  <p><strong>Max attendance:</strong> {activity.maxAttendance} people</p>
-                ) : null}
+                <span>
+                  {' '}
+                  {activity.durationMin ?? activity.duration ?? '-'} min
+                </span>
+                <span>
+                  {' '}
+                  | {activity.calories ?? '-'} cal
+                </span>
               </li>
             ))}
           </ul>
